@@ -14,7 +14,7 @@ namespace dinput8_proxy {
 		return std::filesystem::path(path).append(L"dinput8.dll");
 	}
 
-	bool chainloadNext(std::filesystem::path dllPath) {
+	bool ChainloadNext(std::filesystem::path dllPath) {
 		if (hDinput8) {
 			return true;
 		}

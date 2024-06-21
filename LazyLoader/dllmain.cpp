@@ -22,19 +22,20 @@ void MessageboxShowDlls(std::vector<std::filesystem::path>& dlls,std::filesystem
 }
 
 void setup() {
-    if(!MessageboxConfirmLoad()){return;}
+    if (MessageboxConfirmLoad()) {
 
-    iniConfig::LoadConfig();
+        iniConfig::LoadConfig();
 
-    std::vector<std::filesystem::path> dlls;
-    LazyLoader::getAllDllsInFolder(iniConfig::dllModFolderName, dlls);
-    LazyLoader::SortDllsWithPrioityMap(iniConfig::loadOrder, dlls);
+        std::vector<std::filesystem::path> dlls;
+        LazyLoader::GetAllDllsInFolder(iniConfig::dllModFolderName, dlls);
+        LazyLoader::SortDllsWithPrioityMap(iniConfig::loadOrder, dlls);
 
-    MessageboxShowDlls(dlls, iniConfig::dllChainloadName);
+        MessageboxShowDlls(dlls, iniConfig::dllChainloadName);
 
-    LazyLoader::LoadDlls(dlls);
+        LazyLoader::LoadDlls(dlls);
+    }
     
-    dinput8_proxy::chainloadNext(iniConfig::dllChainloadName);
+    dinput8_proxy::ChainloadNext(iniConfig::dllChainloadName);
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,

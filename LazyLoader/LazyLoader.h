@@ -8,7 +8,7 @@ namespace LazyLoader {
 
 	__declspec(selectany) std::map<std::filesystem::path, HMODULE> loadedDlls;
 
-	void getAllDllsInFolder(std::filesystem::path folder, std::vector<std::filesystem::path>& dlls) {
+	void GetAllDllsInFolder(std::filesystem::path folder, std::vector<std::filesystem::path>& dlls) {
 		if (!std::filesystem::exists(folder)) {
 			return;
 		}
@@ -45,6 +45,7 @@ namespace LazyLoader {
 			try{
 				HMODULE h = LoadLibraryW(dll.c_str());
 				loadedDlls[dll] = h;
+				std::cout << "[LazyLoader]" << "Loaded dll: " << dll.string() << std::endl;
 			}
 			catch (std::exception e) {
 				std::cerr << "[LazyLoader]" << "Failed to load dll: " << dll << " Exception: " << e.what() << std::endl;
