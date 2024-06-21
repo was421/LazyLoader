@@ -1,0 +1,7 @@
+EXPORTS
+DirectInput8Create=_DirectInput8Create @1
+DllCanUnloadNow=_DllCanUnloadNow @2
+DllGetClassObject=_DllGetClassObject @3
+DllRegisterServer=_DllRegisterServer @4
+DllUnregisterServer=_DllUnregisterServer @5
+GetdfDIJoystick=_GetdfDIJoystick @6
