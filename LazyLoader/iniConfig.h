@@ -60,9 +60,9 @@ namespace iniConfig {
 	}
 
 
-	__declspec(selectany) std::filesystem::path dllModFolderName;
-	__declspec(selectany) std::filesystem::path dllChainloadName;
-	__declspec(selectany) std::map<int, std::wstring> loadOrder;
+	__declspec(selectany) std::filesystem::path dllModFolderName = {};
+	__declspec(selectany) std::filesystem::path dllChainloadName = {};
+	__declspec(selectany) std::map<int, std::wstring> loadOrder = {};
 
 	void writeDefaultConfigIfNotExists() {
 		std::filesystem::path filePath = std::filesystem::current_path().append(defaultFileName);
